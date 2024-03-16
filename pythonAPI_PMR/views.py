@@ -169,7 +169,7 @@ def getCrowdManagementOfDayNamur(request, day):
         return JsonResponse({'error': 'Invalid day format. Please provide day in ddmmyy format.'})
 
     # Read the CSV file
-    Namur = pd.read_csv("pythonAPI_PMR/donnéesCharleroi.csv")
+    Namur = pd.read_csv("pythonAPI_PMR/donnéesNamur.csv")
 
     # Convert the 'timestamp' column to datetime with correct format
     Namur['timestamp'] = pd.to_datetime(Namur['timestamp'], format='%d/%m/%Y %H:%M:%S')
