@@ -15,14 +15,15 @@ from django.http import JsonResponse
 from PMR_pythonAPI.settings import BASE_DIR
 
 
-def arrets_de_bus_zone_Charleroi(request):
+def arrets_de_bus_zone_Charleroi(request, km):
     import requests
     from django.http import JsonResponse
 
     # Coordonnées géographiques de la gare de Charleroi
     lat = 50.404444  # Latitude en décimal
     lon = 4.438611   # Longitude en décimal
-    radius = 0.02   # Rayon de la zone autour de la gare (5 km = 0.05 degré en approximation)
+    radius = km   # Rayon de la zone autour de la gare (5 km = 0.05 degré en approximation)
+
 
     # Définition de la zone autour de la gare
     min_lat = lat - radius
@@ -50,19 +51,19 @@ def arrets_de_bus_zone_Charleroi(request):
         # Retourner les données JSON des arrêts dans la zone
         print(len(arrets_dans_zone))
         print(arrets_dans_zone[1])
-        return JsonResponse({"arrets_dans_zone": arrets_dans_zone})
+        return JsonResponse(arrets_dans_zone)
     else:
         # Gestion des erreurs
         return JsonResponse({"error": "Erreur lors de la récupération des données API"}, status=500)
 
 
-def arrets_de_bus_zone_Namur(request):
+def arrets_de_bus_zone_Namur(request, km):
 
 
     # Coordonnées géographiques de la gare de Bruxelles
     lat = 50.466667  # Latitude en décimal
     lon = 4.866667   # Longitude en décimal
-    radius = 0.01   # Rayon de la zone autour de la gare (5 km = 0.05 degré en approximation)
+    radius = km   # Rayon de la zone autour de la gare (5 km = 0.05 degré en approximation)
 
     # Définition de la zone autour de la gare
     min_lat = lat - radius
@@ -90,7 +91,7 @@ def arrets_de_bus_zone_Namur(request):
         # Retourner les données JSON des arrêts dans la zone
         print(len(arrets_dans_zone))
         print(arrets_dans_zone[1])
-        return JsonResponse({"arrets_dans_zone": arrets_dans_zone})
+        return JsonResponse(arrets_dans_zone)
     else:
         # Gestion des erreurs
         return JsonResponse({"error": "Erreur lors de la récupération des données API"}, status=500)
@@ -185,3 +186,4 @@ def getCrowdManagementOfDayNamur(request, day):
 
     # Return JSON response
     return JsonResponse(json_data, safe=False)
+
