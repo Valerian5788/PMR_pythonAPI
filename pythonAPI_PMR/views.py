@@ -22,8 +22,7 @@ def arrets_de_bus_zone_Charleroi(request):
     # Coordonnées géographiques de la gare de Charleroi
     lat = 50.404444  # Latitude en décimal
     lon = 4.438611   # Longitude en décimal
-
-    radius = 0.01  # Rayon de la zone autour de la gare (5 km = 0.05 degré en approximation)
+    radius = 0.02  # Rayon de la zone autour de la gare (5 km = 0.05 degré en approximation)
 
 
     # Définition de la zone autour de la gare
@@ -52,7 +51,7 @@ def arrets_de_bus_zone_Charleroi(request):
         # Retourner les données JSON des arrêts dans la zone
         print(len(arrets_dans_zone))
         print(arrets_dans_zone[1])
-        return JsonResponse(arrets_dans_zone)
+        return JsonResponse({"arret autour CharleroiCentral :":arrets_dans_zone})
     else:
         # Gestion des erreurs
         return JsonResponse({"error": "Erreur lors de la récupération des données API"}, status=500)
@@ -92,7 +91,7 @@ def arrets_de_bus_zone_Namur(request):
         # Retourner les données JSON des arrêts dans la zone
         print(len(arrets_dans_zone))
         print(arrets_dans_zone[1])
-        return JsonResponse(arrets_dans_zone)
+        return JsonResponse({"arret autour de la gare de Namur :":arrets_dans_zone})
     else:
         # Gestion des erreurs
         return JsonResponse({"error": "Erreur lors de la récupération des données API"}, status=500)
