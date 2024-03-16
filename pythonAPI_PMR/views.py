@@ -106,14 +106,27 @@ def get_all_facilities(request):
     if os.path.exists(json_file_path):
         # Ouvrir et lire le contenu du fichier JSON
         with open(json_file_path, 'r') as file:
-            json_data = file.read()
+            json_data = json.load(file)
 
-        # Retourner une réponse avec le contenu du fichier JSON
-        return FileResponse(json_data, content_type='application/json')
+        # Filtrer les données pour obtenir seulement la station "Charleroi-Central" et "Namur"
+        charleroi_data = next((station for station in json_data if station["station"] == "Charleroi-Central"), None)
+        namur_data = next((station for station in json_data if station["station"] == "Namur"), None)
+
+        if charleroi_data and namur_data:
+            # Créer un dictionnaire contenant les données des deux stations
+            response_data = {
+                "Charleroi-Central": charleroi_data["facilities"],
+                "Namur": namur_data["facilities"]
+            }
+            # Retourner une réponse avec les installations des deux stations
+            print(response_data)
+            return HttpResponse(json.dumps(response_data), content_type='application/json')
+        else:
+            # Si une des stations n'est pas trouvée, retourner une réponse avec un code d'erreur approprié
+            return HttpResponse(status=404)
     else:
         # Si le fichier n'existe pas, retourner une réponse avec un code d'erreur approprié
         return HttpResponse(status=404)
-
 import requests
 
 def getFacilitiesOfATrain(request, id):
