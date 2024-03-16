@@ -24,7 +24,6 @@ def arrets_de_bus_zone_Charleroi(request):
     lon = 4.438611   # Longitude en décimal
     radius = 0.02  # Rayon de la zone autour de la gare (5 km = 0.05 degré en approximation)
 
-
     # Définition de la zone autour de la gare
     min_lat = lat - radius
     max_lat = lat + radius
@@ -41,29 +40,26 @@ def arrets_de_bus_zone_Charleroi(request):
         data = response.json()
         arrets_dans_zone = []
         for result in data["results"]:
-            if "stop_coordinates" in result:
-                stop_coordinates = result["stop_coordinates"]
-                if "lat" in stop_coordinates and "lon" in stop_coordinates:
-                    stop_lat = float(stop_coordinates["lat"])
-                    stop_lon = float(stop_coordinates["lon"])
-                    if min_lat <= stop_lat <= max_lat and min_lon <= stop_lon <= max_lon:
-                        arrets_dans_zone.append(result)
+            if "stop_id" in result and "stop_name" in result and "stop_coordinates" in result and "wheelchair_boarding" in result:
+                stop_info = {
+                    "stop_id": result["stop_id"],
+                    "stop_name": result["stop_name"],
+                    "stop_coordinates": result["stop_coordinates"],
+                    "wheelchair_boarding": result["wheelchair_boarding"]
+                }
+                arrets_dans_zone.append(stop_info)
+
         # Retourner les données JSON des arrêts dans la zone
-        print(len(arrets_dans_zone))
-        print(arrets_dans_zone[1])
-        return JsonResponse({"arret autour CharleroiCentral :":arrets_dans_zone})
+        return JsonResponse({"arret_autour_CharleroiCentral": arrets_dans_zone})
     else:
         # Gestion des erreurs
         return JsonResponse({"error": "Erreur lors de la récupération des données API"}, status=500)
 
-
 def arrets_de_bus_zone_Namur(request):
-
-
-    # Coordonnées géographiques de la gare de Bruxelles
+    # Coordonnées géographiques de la gare de Namur
     lat = 50.466667  # Latitude en décimal
-    lon = 4.866667   # Longitude en décimal
-    radius = 0.01   # Rayon de la zone autour de la gare (5 km = 0.05 degré en approximation)
+    lon = 4.866667  # Longitude en décimal
+    radius = 0.01  # Rayon de la zone autour de la gare (5 km = 0.05 degré en approximation)
 
     # Définition de la zone autour de la gare
     min_lat = lat - radius
@@ -81,20 +77,21 @@ def arrets_de_bus_zone_Namur(request):
         data = response.json()
         arrets_dans_zone = []
         for result in data["results"]:
-            if "stop_coordinates" in result:
-                stop_coordinates = result["stop_coordinates"]
-                if "lat" in stop_coordinates and "lon" in stop_coordinates:
-                    stop_lat = float(stop_coordinates["lat"])
-                    stop_lon = float(stop_coordinates["lon"])
-                    if min_lat <= stop_lat <= max_lat and min_lon <= stop_lon <= max_lon:
-                        arrets_dans_zone.append(result)
+            if "stop_id" in result and "stop_name" in result and "stop_coordinates" in result and "wheelchair_boarding" in result:
+                stop_info = {
+                    "stop_id": result["stop_id"],
+                    "stop_name": result["stop_name"],
+                    "stop_coordinates": result["stop_coordinates"],
+                    "wheelchair_boarding": result["wheelchair_boarding"]
+                }
+                arrets_dans_zone.append(stop_info)
+
         # Retourner les données JSON des arrêts dans la zone
-        print(len(arrets_dans_zone))
-        print(arrets_dans_zone[1])
-        return JsonResponse({"arret autour de la gare de Namur :":arrets_dans_zone})
+        return JsonResponse({"arret_autour_de_la_gare_de_Namur": arrets_dans_zone})
     else:
         # Gestion des erreurs
         return JsonResponse({"error": "Erreur lors de la récupération des données API"}, status=500)
+
 
 from django.http import FileResponse
 import os
