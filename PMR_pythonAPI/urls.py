@@ -21,8 +21,8 @@ from pythonAPI_PMR import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tecCharleroiCentral/<float:km>', views.arrets_de_bus_zone_Charleroi),
-    path('tecNamurCentral/<float:km>', views.arrets_de_bus_zone_Namur),
+    path('tecCharleroiCentral/<int:km>', views.arrets_de_bus_zone_Charleroi),
+    path('tecNamurCentral/<int:km>', views.arrets_de_bus_zone_Namur),
     path('jsonFacilities', views.get_all_facilities),
     path('jsonComposition/<int:id>', views.getFacilitiesOfATrain),
     path('CharleroiTri/<str:day>', views.getCrowdManagementOfDayCharleroi),

@@ -22,7 +22,8 @@ def arrets_de_bus_zone_Charleroi(request, km):
     # Coordonnées géographiques de la gare de Charleroi
     lat = 50.404444  # Latitude en décimal
     lon = 4.438611   # Longitude en décimal
-    radius = km   # Rayon de la zone autour de la gare (5 km = 0.05 degré en approximation)
+    km = float(km)
+    radius = km * 0.01  # Rayon de la zone autour de la gare (5 km = 0.05 degré en approximation)
 
 
     # Définition de la zone autour de la gare
@@ -63,7 +64,8 @@ def arrets_de_bus_zone_Namur(request, km):
     # Coordonnées géographiques de la gare de Bruxelles
     lat = 50.466667  # Latitude en décimal
     lon = 4.866667   # Longitude en décimal
-    radius = km   # Rayon de la zone autour de la gare (5 km = 0.05 degré en approximation)
+    km = float(km)
+    radius = km * 0.01   # Rayon de la zone autour de la gare (5 km = 0.05 degré en approximation)
 
     # Définition de la zone autour de la gare
     min_lat = lat - radius
