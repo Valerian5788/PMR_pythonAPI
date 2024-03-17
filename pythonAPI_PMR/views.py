@@ -40,12 +40,11 @@ def arrets_de_bus_zone_Charleroi(request):
         data = response.json()
         arrets_dans_zone = []
         for result in data["results"]:
-            if "stop_id" in result and "stop_name" in result and "stop_coordinates" in result and "wheelchair_boarding" in result:
+            if "stop_id" in result and "stop_name" in result and "stop_coordinates" in result :
                 stop_info = {
                     "stop_id": result["stop_id"],
                     "stop_name": result["stop_name"],
-                    "stop_coordinates": result["stop_coordinates"],
-                    "wheelchair_boarding": result["wheelchair_boarding"]
+                    "stop_coordinates": result["stop_coordinates"]
                 }
                 arrets_dans_zone.append(stop_info)
 
@@ -77,12 +76,11 @@ def arrets_de_bus_zone_Namur(request):
         data = response.json()
         arrets_dans_zone = []
         for result in data["results"]:
-            if "stop_id" in result and "stop_name" in result and "stop_coordinates" in result and "wheelchair_boarding" in result:
+            if "stop_id" in result and "stop_name" in result and "stop_coordinates" in result:
                 stop_info = {
                     "stop_id": result["stop_id"],
                     "stop_name": result["stop_name"],
-                    "stop_coordinates": result["stop_coordinates"],
-                    "wheelchair_boarding": result["wheelchair_boarding"]
+                    "stop_coordinates": result["stop_coordinates"]
                 }
                 arrets_dans_zone.append(stop_info)
 
