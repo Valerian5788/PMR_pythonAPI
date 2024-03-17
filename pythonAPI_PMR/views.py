@@ -35,7 +35,7 @@ def arrets_de_bus_zone_Charleroi(request):
 
     # Requête à l'API
     response = requests.get(url)
-
+#push
     if response.status_code == 200:
         data = response.json()
         arrets_dans_zone = []
