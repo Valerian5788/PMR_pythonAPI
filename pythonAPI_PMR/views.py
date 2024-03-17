@@ -49,7 +49,7 @@ def arrets_de_bus_zone_Charleroi(request):
                 arrets_dans_zone.append(stop_info)
 
         # Retourner les données JSON des arrêts dans la zone
-        return JsonResponse({"arret_autour_CharleroiCentral": arrets_dans_zone})
+        return JsonResponse({"arret_autour_zone": arrets_dans_zone})
     else:
         # Gestion des erreurs
         return JsonResponse({"error": "Erreur lors de la récupération des données API"}, status=500)
@@ -85,7 +85,7 @@ def arrets_de_bus_zone_Namur(request):
                 arrets_dans_zone.append(stop_info)
 
         # Retourner les données JSON des arrêts dans la zone
-        return JsonResponse({"arret_autour_de_la_gare_de_Namur": arrets_dans_zone})
+        return JsonResponse({"arret_autour_zone": arrets_dans_zone})
     else:
         # Gestion des erreurs
         return JsonResponse({"error": "Erreur lors de la récupération des données API"}, status=500)
