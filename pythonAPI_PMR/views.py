@@ -143,6 +143,8 @@ def getFacilitiesOfATrain(request, id):
     else:
         return None
 
+def documentationTrain(request):
+    return render(request, 'jsonComp.html')
 
 def getCrowdManagementOfDayCharleroi(request, day):
     # Example of validating the format of the day string

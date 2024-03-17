@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation de l'API getFacilitiesOfATrain</title>
+    <!-- Intégration de Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Documentation de l'API getFacilitiesOfATrain</h1>
+        <p>Cette API retourne les installations disponibles pour un train spécifique.</p>
+        <h2>Utilisation :</h2>
+        <p>Envoyez une requête GET à l'URL suivante :</p>
+        <pre>/jsonComposition/{id}/</pre>
+        <p>où <code>&lt;id&gt;</code> est l'identifiant du train (sans IC, seulement le chiffre).</p>
+        <h2>Exemple de réponse :</h2>
+        <pre>
+{
+  "version": "1.2",
+  "timestamp": "1710664518",
+  "composition": {
+    "segments": {
+      "number": "2",
+      "segment": [
+        {
+          "id": "0",
+          "origin": {
+            "locationX": "4.56936",
+            "locationY": "50.673667",
+            "name": "Ottignies"
+          },
+          "destination": {
+            "locationX": "4.56936",
+            "locationY": "50.673667",
+            "name": "Ottignies"
+          },
+          "composition": {
+            "source": "IDA",
+            "units": {
+              "number": "3",
+              "unit": [
+                {
+                  "id": "0",
+                  "materialType": {
+                    "parent_type": "AM08M",
+                    "sub_type": "a"
+                  },
+                  "hasToilets": "0",
+                  ...
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+        </pre>
+    </div>
+
+    <!-- Intégration de Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

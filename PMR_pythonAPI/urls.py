@@ -31,4 +31,5 @@ urlpatterns = [
     path('tecNamurDocument/', views.documentation_namur),
     path('documentationInstallations/', views.documentationInstallations),
     path('documentationCrowd', views.documentationCrowd),
+    path('compositionDocumentation', views.documentationTrain)
 ]
