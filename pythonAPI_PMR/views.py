@@ -171,6 +171,9 @@ def getCrowdManagementOfDayCharleroi(request, day):
 
 def documentationCrowdCharleroi(request):
     return render(request, 'crowdManagementCharleroi.html')
+
+def documentationCrowdNamur(request):
+    return render(request, 'crowdManagementNamur.html')
 def getCrowdManagementOfDayNamur(request, day):
     # Example of validating the format of the day string
     if len(day) != 6:
