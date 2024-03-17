@@ -93,7 +93,8 @@ def arrets_de_bus_zone_Namur(request):
         # Gestion des erreurs
         return JsonResponse({"error": "Erreur lors de la récupération des données API"}, status=500)
 
-
+def documentation_namur(request):
+    return render(request, 'stop_namur.html')
 from django.http import FileResponse
 import os
 
