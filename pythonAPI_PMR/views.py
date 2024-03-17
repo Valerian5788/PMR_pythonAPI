@@ -3,6 +3,7 @@ from xmlrpc.client import DateTime
 from django.http import JsonResponse, HttpResponse
 import pandas as pd
 import requests
+from django.shortcuts import render
 from geopy.distance import geodesic
 
 import requests
@@ -54,6 +55,8 @@ def arrets_de_bus_zone_Charleroi(request):
         # Gestion des erreurs
         return JsonResponse({"error": "Erreur lors de la récupération des données API"}, status=500)
 
+def documentation_Charleroi(request):
+    return render(request, 'stop_charleroi.html')
 def arrets_de_bus_zone_Namur(request):
     # Coordonnées géographiques de la gare de Namur
     lat = 50.466667  # Latitude en décimal
