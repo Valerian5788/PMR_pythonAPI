@@ -129,6 +129,9 @@ def get_all_facilities(request):
         return HttpResponse(status=404)
 import requests
 
+
+def documentationInstallations(request):
+    return render(request, 'facilities_docu.html')
 def getFacilitiesOfATrain(request, id):
     url = 'https://api.irail.be/composition/?format=json&id=IC' + f'={id}'
     response = requests.get(url)
@@ -163,6 +166,9 @@ def getCrowdManagementOfDayCharleroi(request, day):
 
     # Return JSON response
     return JsonResponse(json_data, safe=False)
+
+def documentationCrowd(request):
+    return render(request, 'crowdManagement.html')
 def getCrowdManagementOfDayNamur(request, day):
     # Example of validating the format of the day string
     if len(day) != 6:

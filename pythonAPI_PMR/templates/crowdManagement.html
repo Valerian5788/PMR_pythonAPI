@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation de l'API CharleroiTri</title>
+    <!-- Intégration de Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Documentation de l'API CharleroiTri</h1>
+        <p>Cette API retourne les données de gestion de foule pour la gare de Charleroi pour une journée spécifique.</p>
+        <h2>Utilisation</h2>
+        <p>Utilisez l'URL suivante pour accéder aux données :</p>
+        <code>/CharleroiTri/&lt;jour&gt;/</code>
+        <p>Remplacez &lt;jour&gt; par la date au format ddmmyy (par exemple, 311023 pour le 31 octobre 2023).</p>
+        <h2>Exemple de réponse</h2>
+        <pre>
+[
+    {"timestamp": "2023-02-02T02:00:00", "zone": "Gare de Charleroi", "total": 275},
+    {"timestamp": "2023-02-02T03:00:00", "zone": "Gare de Charleroi", "total": 375},
+    {"timestamp": "2023-02-02T04:00:00", "zone": "Gare de Charleroi", "total": 389},
+    <!-- Autres données... -->
+]
+        </pre>
+        <p>Les données sont renvoyées au format JSON et comprennent le timestamp, la zone (qui est toujours "Gare de Charleroi" dans ce cas) et le total de personnes pour chaque heure.</p>
+    </div>
+
+    <!-- Intégration de Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

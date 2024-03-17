@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation de la fonction get_all_facilities</title>
+    <!-- Intégration de Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Documentation de la fonction pour récupèrer toutes les installations d'une gare</h1>
+        <p>Cette fonction retourne les installations disponibles à la gare Charleroi-Central et Namur.</p>
+        <p>Exemple de sortie :</p>
+        <pre>
+{
+  "Charleroi-Central": [
+    {"name": "Paid Toilets", "value": "Toilettes payantes"},
+    {"name": "Location of taxis", "value": "Taxis"},
+    {"name": "Luggage Lockers", "value": "Consignes à bagages"},
+    {"name": "TVM Count", "value": "Automate(s) de vente"},
+    {"name": "Wifi presence", "value": "Wifi gratuit en gare"},
+    <!-- Autres installations pour Charleroi-Central... -->
+  ],
+  "Namur": [
+    {"name": "Paid Toilets", "value": "Toilettes payantes"},
+    {"name": "Location of taxis", "value": "Taxis"},
+    {"name": "Luggage Lockers", "value": "Consignes à bagages"},
+    {"name": "TVM Count", "value": "Automate(s) de vente"},
+    {"name": "Wifi presence", "value": "Wifi gratuit en gare"},
+    <!-- Autres installations pour Namur... -->
+  ]
+}
+        </pre>
+        <p>Pour obtenir les données sur les installations des gares, veuillez accéder à l'URL <code>api/jsonFacilities</code>.</p>
+    </div>
+
+    <!-- Intégration de Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

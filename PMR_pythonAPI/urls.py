@@ -29,4 +29,6 @@ urlpatterns = [
     path('NamurTri/<str:day>', views.getCrowdManagementOfDayNamur),
     path('tecCharleroiDocument', views.documentation_Charleroi),
     path('tecNamurDocument/', views.documentation_namur),
+    path('documentationInstallations/', views.documentationInstallations),
+    path('documentationCrowd', views.documentationCrowd),
 ]
