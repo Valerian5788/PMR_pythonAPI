@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation de l'API NamurTri</title>
+    <!-- Intégration de Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Documentation de l'API NamurTri</h1>
+        <p>Cette API retourne les données de gestion de foule pour la gare de Namur pour une journée spécifique.</p>
+        <h2>Utilisation</h2>
+        <p>Utilisez l'URL suivante pour accéder aux données :</p>
+        <code>/NamurTri/&lt;jour&gt;/</code>
+        <p>Remplacez &lt;jour&gt; par la date au format ddmmyy (par exemple, 020223 pour le 02 février 2023).</p>
+        <h2>Exemple de réponse</h2>
+        <pre>
+[
+    {"timestamp": "2023-02-02T00:00:00", "zone": "Gare de Namur", "total": 227},
+    {"timestamp": "2023-02-02T01:00:00", "zone": "Gare de Namur", "total": 232},
+    {"timestamp": "2023-02-02T02:00:00", "zone": "Gare de Namur", "total": 215},
+    <!-- Autres données... -->
+]
+        </pre>
+        <p>Les données sont renvoyées au format JSON et comprennent le timestamp, la zone (qui est toujours "Gare de Namur" dans ce cas) et le total de personnes pour chaque heure.</p>
+    </div>
+
+    <!-- Intégration de Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

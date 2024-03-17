@@ -169,8 +169,8 @@ def getCrowdManagementOfDayCharleroi(request, day):
     # Return JSON response
     return JsonResponse(json_data, safe=False)
 
-def documentationCrowd(request):
-    return render(request, 'crowdManagement.html')
+def documentationCrowdCharleroi(request):
+    return render(request, 'crowdManagementCharleroi.html')
 def getCrowdManagementOfDayNamur(request, day):
     # Example of validating the format of the day string
     if len(day) != 6:
