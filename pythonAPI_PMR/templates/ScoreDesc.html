@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation des APIs pour les gares de Namur et Charleroi-Central</title>
+    <!-- Intégration de Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Documentation des APIs pour les gares de Namur et Charleroi-Central</h1>
+        <h2>Affluence des gares</h2>
+        <p>Ces APIs fournissent des informations sur l'affluence des gares de Namur et Charleroi-Central.</p>
+        <h3>Charleroi-Central</h3>
+        <p>Pour obtenir l'affluence de la gare de Charleroi-Central, utilisez l'API suivante :</p>
+        <pre>/CharleroiCrowdManagement/&lt;day&gt;/</pre>
+        <p>où <code>&lt;day&gt;</code> est la date au format 'ddmmyy'.</p>
+        <h3>Namur</h3>
+        <p>Pour obtenir l'affluence de la gare de Namur, utilisez l'API suivante :</p>
+        <pre>/NamurCrowdManagement/&lt;day&gt;/</pre>
+        <p>où <code>&lt;day&gt;</code> est la date au format 'ddmmyy'.</p>
+        <h2>Installations PMR</h2>
+        <p>Ces APIs fournissent des informations sur les installations PMR disponibles dans les gares de Namur et Charleroi-Central.</p>
+        <h3>Charleroi-Central</h3>
+        <p>Pour obtenir les installations PMR de la gare de Charleroi-Central, utilisez l'API suivante :</p>
+        <pre>/jsonFacilities/Charleroi</pre>
+        <h3>Namur</h3>
+        <p>Pour obtenir les installations PMR de la gare de Namur, utilisez l'API suivante :</p>
+        <pre>/jsonFacilities/Namur</pre>
+        <h2>Satisfaction utilisateur et PMRscore</h2>
+        <p>La satisfaction utilisateur et le score PMR sont également fournis pour les gares de Namur et Charleroi-Central.</p>
+        <h3>Charleroi-Central</h3>
+        <p>La satisfaction utilisateur est de 85% et le PMRscore est de B.</p>
+        <h3>Namur</h3>
+        <p>La satisfaction utilisateur est de 90% et le PMRscore est de A.</p>
+        <h2>Nombre d'arrêts TEC</h2>
+        <p>Les APIs fournissent également le nombre d'arrêts TEC autour des gares de Namur et Charleroi-Central.</p>
+        <h3>Charleroi-Central</h3>
+        <p>Il y a 15 arrêts TEC autour de la gare de Charleroi-Central.</p>
+        <h3>Namur</h3>
+        <p>Il y a 12 arrêts TEC autour de la gare de Namur.</p>
+    </div>
+
+    <!-- Intégration de Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

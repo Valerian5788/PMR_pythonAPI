@@ -31,5 +31,6 @@ urlpatterns = [
     path('tecNamurDocument/', views.documentation_namur),
     path('documentationInstallations/', views.documentationInstallations),
     path('documentationCrowd', views.documentationCrowd),
-    path('compositionDocumentation', views.documentationTrain)
+    path('compositionDocumentation', views.documentationTrain),
+    path('ApiScoreDoc', views.GetScoreView)
 ]

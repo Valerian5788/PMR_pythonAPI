@@ -194,3 +194,5 @@ def getCrowdManagementOfDayNamur(request, day):
     # Return JSON response
     return JsonResponse(json_data, safe=False)
 
+def GetScoreView(request):
+    return render(request,'ScoreDesc.html')
