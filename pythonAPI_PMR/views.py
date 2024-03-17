@@ -58,7 +58,7 @@ def arrets_de_bus_zone_Namur(request):
     # Coordonnées géographiques de la gare de Namur
     lat = 50.466667  # Latitude en décimal
     lon = 4.866667  # Longitude en décimal
-    radius = 0.01  # Rayon de la zone autour de la gare (5 km = 0.05 degré en approximation)
+    radius = 0.02  # Rayon de la zone autour de la gare (5 km = 0.05 degré en approximation)
 
     # Définition de la zone autour de la gare
     min_lat = lat - radius
