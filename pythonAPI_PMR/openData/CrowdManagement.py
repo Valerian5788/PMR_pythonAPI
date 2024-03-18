@@ -65,7 +65,6 @@ def get_bus_stops_in_namur():
                     "stop_coordinates": result["stop_coordinates"]
                 }
                 arrets_dans_zone.append(stop_info)
-
         # Retourner les données JSON des arrêts dans la zone
         return {"arret_autour_zone": arrets_dans_zone}
     else:

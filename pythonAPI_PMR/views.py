@@ -5,15 +5,16 @@ from django.shortcuts import render
 from geopy.distance import geodesic
 import json
 import os
-from .openData import CrowdManagement
+from .openData import CrowdManagement, facilities, bus_stop
 from PMR_pythonAPI.settings import BASE_DIR
+
 
 
 def arrets_de_bus_zone_Charleroi(request):
     # Call function from bus_stops_logic module to get bus stop data for Charleroi
     data = CrowdManagement.get_bus_stops_in_charleroi()
     return JsonResponse(data)
-
+#erreur: CrowdManagement pas au bon endroit
 
 def documentation_Charleroi(request):
     return render(request, 'stop_charleroi.html')
@@ -29,34 +30,11 @@ def documentation_namur(request):
 
 
 def get_all_facilities(request):
-    # Chemin vers le fichier facilities.json dans votre projet
-    json_file_path = os.path.join(BASE_DIR, 'pythonAPI_PMR/facilities.json')
-
-    # Vérifier si le fichier existe
-    if os.path.exists(json_file_path):
-        # Ouvrir et lire le contenu du fichier JSON
-        with open(json_file_path, 'r') as file:
-            json_data = json.load(file)
-
-        # Filtrer les données pour obtenir seulement la station "Charleroi-Central" et "Namur"
-        charleroi_data = next((station for station in json_data if station["station"] == "Charleroi-Central"), None)
-        namur_data = next((station for station in json_data if station["station"] == "Namur"), None)
-
-        if charleroi_data and namur_data:
-            # Créer un dictionnaire contenant les données des deux stations
-            response_data = {
-                "Charleroi-Central": charleroi_data["facilities"],
-                "Namur": namur_data["facilities"]
-            }
-            # Retourner une réponse avec les installations des deux stations
-            return HttpResponse(json.dumps(response_data), content_type='application/json')
-        else:
-            # Si une des stations n'est pas trouvée, retourner une réponse avec un code d'erreur approprié
-            return HttpResponse(status=404)
+    facilities_data = bus_stop.get_facilities_data()
+    if facilities_data:
+        return JsonResponse(facilities_data)
     else:
-        # Si le fichier n'existe pas, retourner une réponse avec un code d'erreur approprié
         return HttpResponse(status=404)
-
 
 def documentationInstallations(request):
     return render(request, 'facilities_docu.html')
