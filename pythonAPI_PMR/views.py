@@ -1,25 +1,15 @@
-from xmlrpc.client import DateTime
-
 from django.http import JsonResponse, HttpResponse
 import pandas as pd
 import requests
 from django.shortcuts import render
 from geopy.distance import geodesic
-
-import requests
-import requests
-from django.http import JsonResponse
 import json
-import requests
-from django.http import JsonResponse
+import os
 
 from PMR_pythonAPI.settings import BASE_DIR
 
 
 def arrets_de_bus_zone_Charleroi(request):
-    import requests
-    from django.http import JsonResponse
-
     # Coordonnées géographiques de la gare de Charleroi
     lat = 50.404444  # Latitude en décimal
     lon = 4.438611   # Longitude en décimal
@@ -36,7 +26,7 @@ def arrets_de_bus_zone_Charleroi(request):
 
     # Requête à l'API
     response = requests.get(url)
-#push
+
     if response.status_code == 200:
         data = response.json()
         arrets_dans_zone = []
@@ -55,8 +45,11 @@ def arrets_de_bus_zone_Charleroi(request):
         # Gestion des erreurs
         return JsonResponse({"error": "Erreur lors de la récupération des données API"}, status=500)
 
+
 def documentation_Charleroi(request):
     return render(request, 'stop_charleroi.html')
+
+
 def arrets_de_bus_zone_Namur(request):
     # Coordonnées géographiques de la gare de Namur
     lat = 50.466667  # Latitude en décimal
@@ -93,10 +86,10 @@ def arrets_de_bus_zone_Namur(request):
         # Gestion des erreurs
         return JsonResponse({"error": "Erreur lors de la récupération des données API"}, status=500)
 
+
 def documentation_namur(request):
     return render(request, 'stop_namur.html')
-from django.http import FileResponse
-import os
+
 
 def get_all_facilities(request):
     # Chemin vers le fichier facilities.json dans votre projet
@@ -119,7 +112,6 @@ def get_all_facilities(request):
                 "Namur": namur_data["facilities"]
             }
             # Retourner une réponse avec les installations des deux stations
-            print(response_data)
             return HttpResponse(json.dumps(response_data), content_type='application/json')
         else:
             # Si une des stations n'est pas trouvée, retourner une réponse avec un code d'erreur approprié
@@ -127,24 +119,26 @@ def get_all_facilities(request):
     else:
         # Si le fichier n'existe pas, retourner une réponse avec un code d'erreur approprié
         return HttpResponse(status=404)
-import requests
 
 
 def documentationInstallations(request):
     return render(request, 'facilities_docu.html')
+
+
 def getFacilitiesOfATrain(request, id):
     url = 'https://api.irail.be/composition/?format=json&id=IC' + f'={id}'
     response = requests.get(url)
 
     if response.status_code == 200:
         json_data = response.json()
-        print(json_data)
         return JsonResponse(json_data)
     else:
         return None
 
+
 def documentationTrain(request):
     return render(request, 'jsonComp.html')
+
 
 def getCrowdManagementOfDayCharleroi(request, day):
     # Example of validating the format of the day string
@@ -169,11 +163,15 @@ def getCrowdManagementOfDayCharleroi(request, day):
     # Return JSON response
     return JsonResponse(json_data, safe=False)
 
+
 def documentationCrowdCharleroi(request):
     return render(request, 'crowdManagementCharleroi.html')
 
+
 def documentationCrowdNamur(request):
     return render(request, 'crowdManagementNamur.html')
+
+
 def getCrowdManagementOfDayNamur(request, day):
     # Example of validating the format of the day string
     if len(day) != 6:
@@ -197,5 +195,6 @@ def getCrowdManagementOfDayNamur(request, day):
     # Return JSON response
     return JsonResponse(json_data, safe=False)
 
+
 def GetScoreView(request):
-    return render(request,'ScoreDesc.html')
+    return render(request, 'ScoreDesc.html')
