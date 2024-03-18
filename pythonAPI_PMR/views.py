@@ -19,7 +19,7 @@ def documentation_Charleroi(request):
     return render(request, 'stop_charleroi.html')
 
 
-def arret_de_bus_zone_Namur(request):
+def arrets_de_bus_zone_Namur(request):
     # Call function from bus_stops_logic module to get bus stop data for Namur
     data = CrowdManagement.get_bus_stops_in_namur()
     return JsonResponse(data)
