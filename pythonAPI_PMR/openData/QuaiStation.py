@@ -8,11 +8,11 @@ def get_hauteur_quai(station):
         data = response.json()
         for result in data["results"]:
             json_data = {
-                "nom de la station: ", data["longnamefrench"],
-                "quai", data["quai"],
-                "Type de quai", data["platform_type"],
-                "Hauteur", data["hauteur"],
-                "Coordonnées", data["geometry"]
+                "nom de la station: ", result["longnamefrench"],
+                "quai", result["quai"],
+                "Type de quai", result["platform_type"],
+                "Hauteur", result["hauteur"],
+                "Coordonnées", result["geometry"]
             }
         return json_data
     else:
