@@ -2,17 +2,13 @@ from django.http import JsonResponse, HttpResponse
 import pandas as pd
 import requests
 from django.shortcuts import render
-from geopy.distance import geodesic
-import json
-import os
 from .openData import CrowdManagement, facilities, bus_stop
-from PMR_pythonAPI.settings import BASE_DIR
 
 
 
 def arrets_de_bus_zone_Charleroi(request):
     # Call function from bus_stops_logic module to get bus stop data for Charleroi
-    data = CrowdManagement.get_bus_stops_in_charleroi()
+    data = bus_stop.get_bus_stops_in_charleroi()
     return JsonResponse(data)
 #erreur: CrowdManagement pas au bon endroit
 
@@ -22,7 +18,7 @@ def documentation_Charleroi(request):
 
 def arrets_de_bus_zone_Namur(request):
     # Call function from bus_stops_logic module to get bus stop data for Namur
-    data = CrowdManagement.get_bus_stops_in_namur()
+    data = bus_stop.get_bus_stops_in_namur()
     return JsonResponse(data)
 
 def documentation_namur(request):
@@ -30,7 +26,7 @@ def documentation_namur(request):
 
 
 def get_all_facilities(request):
-    facilities_data = bus_stop.get_facilities_data()
+    facilities_data = facilities.get_facilities_data()
     if facilities_data:
         return JsonResponse(facilities_data)
     else:
