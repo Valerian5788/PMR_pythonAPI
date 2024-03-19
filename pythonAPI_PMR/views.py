@@ -1,8 +1,7 @@
 from django.http import JsonResponse, HttpResponse
-import pandas as pd
 import requests
 from django.shortcuts import render
-from .openData import CrowdManagement, facilities, bus_stop
+from .openData import CrowdManagement, facilities, bus_stop, TrainInfos
 
 
 
@@ -30,10 +29,10 @@ def getFacilitiesOfATrain(request, id):
     response = requests.get(url)
 
     if response.status_code == 200:
-        json_data = response.json()
+        json_data = TrainInfos.getFacilitiesOfATrain(id)
         return JsonResponse(json_data)
     else:
-        return None
+        return HttpResponse(status=404)
 
 def getCrowdManagementOfDayCharleroi(request, day):
     # Convert filtered data to JSON
@@ -44,30 +43,14 @@ def getCrowdManagementOfDayCharleroi(request, day):
 
 
 def getCrowdManagementOfDayNamur(request, day):
-    # Example of validating the format of the day string
-    if len(day) != 6:
-        return JsonResponse({'error': 'Invalid day format. Please provide day in ddmmyy format.'})
-
-    # Read the CSV file
-    Namur = pd.read_csv("pythonAPI_PMR/donnéesNamur.csv")
-
-    # Convert the 'timestamp' column to datetime with correct format
-    Namur['timestamp'] = pd.to_datetime(Namur['timestamp'], format='%d/%m/%Y %H:%M:%S')
-
-    # Convert day to the expected format (if needed)
-    day_str_formatted = day[:2] + '/' + day[2:4] + '/' + day[4:]
-
-    # Filter data for the specified day
-    Namur_filtered = Namur[Namur['timestamp'].dt.strftime('%d/%m/%y') == day_str_formatted]
-
     # Convert filtered data to JSON
-    json_data = Namur_filtered.to_dict(orient='records')
+    json_data = CrowdManagement.getCrowdManagementOfDayNamur(day)
 
     # Return JSON response
     return JsonResponse(json_data, safe=False)
 
 
-#documentaions
+#documentations
 
 #/apiScoreDoc
 def GetScoreView(request):
