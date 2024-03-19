@@ -9,8 +9,7 @@ def get_hauteur_quai(station):
             "nom de la station: ", response["longnamefrench"],
             "quai", response["quai"],
             "Type de quai", response["platform_type"],
-            "Hauteur", response["hauteur"],
-            "Coordonnées", response["coordinates"]
+            "Hauteur", response["hauteur"]
         }
         return json_data
     else:
