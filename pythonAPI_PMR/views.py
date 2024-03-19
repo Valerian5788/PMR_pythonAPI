@@ -1,5 +1,4 @@
 from django.http import JsonResponse, HttpResponse
-import requests
 from django.shortcuts import render
 from .openData import CrowdManagement, facilities, bus_stop, TrainInfos
 
@@ -9,7 +8,6 @@ def arrets_de_bus_zone_Charleroi(request):
     # Call function from bus_stops_logic module to get bus stop data for Charleroi
     data = bus_stop.get_bus_stops_in_charleroi()
     return JsonResponse(data)
-#erreur: CrowdManagement pas au bon endroit
 
 
 def arrets_de_bus_zone_Namur(request):
