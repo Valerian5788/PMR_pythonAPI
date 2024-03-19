@@ -1,6 +1,6 @@
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
-from .openData import CrowdManagement, facilities, bus_stop, TrainInfos
+from .openData import CrowdManagement, facilities, bus_stop, TrainInfos, QuaiStation
 
 
 
@@ -44,6 +44,13 @@ def getCrowdManagementOfDayNamur(request, day):
     # Return JSON response
     return JsonResponse(json_data, safe=False)
 
+def GetHauteurQuaiByCity(request, city):
+    json_data = QuaiStation.get_hauteur_quai(city)
+
+    if json_data:
+        return JsonResponse(json_data)
+    else:
+        return HttpResponse(status=400)
 
 #documentations
 
