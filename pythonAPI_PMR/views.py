@@ -25,11 +25,8 @@ def get_all_facilities(request):
         return HttpResponse(status=404)
 
 def getFacilitiesOfATrain(request, id):
-    url = 'https://api.irail.be/composition/?format=json&id=IC' + f'={id}'
-    response = requests.get(url)
-
-    if response.status_code == 200:
-        json_data = TrainInfos.getFacilitiesOfATrain(id)
+    json_data = TrainInfos.getFacilitiesOfATrain(id)
+    if json_data:
         return JsonResponse(json_data)
     else:
         return HttpResponse(status=404)
