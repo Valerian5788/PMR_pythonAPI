@@ -16,8 +16,8 @@ def get_hauteur_quai(station):
             }
             extracted_data.append(station_data)
 
-        #extracted_data.sort(key=lambda x: int(x["id du quai"]))
-        return  extracted_data
+        extracted_data.sort(key=lambda x: int(x["id du quai"]))
+        return  {"données quai : ",extracted_data}
     else:
         return None
 
