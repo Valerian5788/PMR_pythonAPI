@@ -25,7 +25,7 @@ def get_all_facilities(request):
 def getFacilitiesOfATrain(request, id):
     json_data = TrainInfos.getFacilitiesOfATrain(id)
     if json_data:
-        return JsonResponse(json_data)
+        return JsonResponse(json_data, safe=False)
     else:
         return HttpResponse(status=404)
 
