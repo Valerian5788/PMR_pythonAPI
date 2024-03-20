@@ -5,17 +5,17 @@ def get_hauteur_quai(station):
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
-        stations = []
-        for result in data["results"]:
-            station_data = {
-                "nom de la station": result["longnamefrench"],
-                "quai": result["quai"],
-                "Type de quai": result["platform_type"],
-                "Hauteur": result["hauteur"],
-                "Coordonnées": result["geo_point_2d"]
-            }
-            stations.append(station_data)
-        return stations
+        #stations = []
+        #for result in data["results"]:
+         #   station_data = {
+          #      "nom de la station": result["longnamefrench"],
+           #     "quai": result["quai"],
+            #    "Type de quai": result["platform_type"],
+             #   "Hauteur": result["hauteur"],
+              #  "Coordonnées": result["geo_point_2d"]
+            #}
+            #stations.append(station_data)
+        return data
     else:
         return None
 
