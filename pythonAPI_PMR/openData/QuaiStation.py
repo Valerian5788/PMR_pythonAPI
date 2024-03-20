@@ -20,11 +20,3 @@ def get_hauteur_quai(station):
         return  {"donnees quai : ": extracted_data}
     else:
         return None
-
-station = "NAMUR"
-sorted_hauteurs_quais = get_hauteur_quai(station)
-if sorted_hauteurs_quais:
-    for station_data in sorted_hauteurs_quais:
-        print(station_data)
-else:
-    print("Erreur lors de la récupération des données.")
