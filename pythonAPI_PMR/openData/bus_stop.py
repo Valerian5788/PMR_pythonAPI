@@ -58,7 +58,7 @@ def get_bus_stops_in_namur():
         data = response.json()
         arrets_dans_zone = []
         for result in data["results"]:
-            if "stop_id" in result and "stop_name" in result and "stop_coordinates" in result:
+            if "stop_id" in result and "stop_name" in result and "stop_coordinates" in result and min_lat < "stop_coordinates : {lat}" < max_lat and min_lon < "stop_coordinates : {lon}" < max_lon:
                 stop_info = {
                     "stop_id": result["stop_id"],
                     "stop_name": result["stop_name"],
