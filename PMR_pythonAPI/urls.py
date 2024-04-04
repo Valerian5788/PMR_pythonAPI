@@ -20,8 +20,7 @@ from pythonAPI_PMR import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tecCharleroiCentral/', views.arrets_de_bus_zone_Charleroi),
-    path('tecNamurCentral/', views.arrets_de_bus_zone_Namur),
+    path('TecStopAroundStation/?<str:cityname><str:station_name><int:radius>', views.arrets_de_bus_zone),
     path('jsonFacilities', views.get_all_facilities),
     path('jsonComposition/<int:id>', views.getFacilitiesOfATrain),
     path('CharleroiTri/<str:day>', views.getCrowdManagementOfDayCharleroi),
