@@ -24,13 +24,14 @@ def get_bus_stops_around_station(city_name, station_name, radius):
 
     # Construction de l'URL de l'API avec les paramètres de recherche
     url = (f"https://www.odwb.be/api/explore/v2.1/catalog/datasets/gtfs_tec_stops/records?"
-           f"select=*&where=stop_name%20like%20%27{city_name.upper()}%27&limit=99")
+           f"select=*&where=stop_name%20like%20%27{city_name.upper()}%27&order_by=stop_name&limit=99")
 
     # Requête à l'API
     response = requests.get(url)
-
     if response.status_code == 200:
         data = response.json()
+        total_count = data["total_count"]
+        print(total_count)
         arrets_dans_zone = []
         for result in data["results"]:
             if "stop_id" in result and "stop_name" in result and "stop_coordinates" in result and min_lat < \
@@ -49,4 +50,4 @@ def get_bus_stops_around_station(city_name, station_name, radius):
         return {"error": f"Erreur lors de la récupération des données API, status code: {response.status_code}"}
 
 
-print(get_bus_stops_around_station("Charleroi", "Charleroi Central", 0.01))
+print(get_bus_stops_around_station("Namur", "Gare de Namur", 0.005))
