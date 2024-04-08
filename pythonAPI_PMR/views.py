@@ -80,11 +80,6 @@ def documentationInstallations(request):
     return render(request, 'facilities_docu.html')
 
 
-# /tecNamurCentral/
-def documentation_bus_namur(request):
-    return render(request, 'stop_namur.html')
-
-
-# /tecCharleroiCentral/
-def documentation_bus_Charleroi(request):
-    return render(request, 'stop_charleroi.html')
+# /bus/
+def documentation_bus(request):
+    return render(request, 'stop_bus.html')

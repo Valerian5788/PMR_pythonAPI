@@ -50,4 +50,4 @@ def get_bus_stops_around_station(city_name, station_name, radius):
         return {"error": f"Erreur lors de la récupération des données API, status code: {response.status_code}"}
 
 
-print(get_bus_stops_around_station("Namur", "Gare de Namur", 0.005))
+print(get_bus_stops_around_station("Namur", "GaredeNamur", 0.005))
