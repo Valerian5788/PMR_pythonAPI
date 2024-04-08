@@ -3,8 +3,11 @@ from django.shortcuts import render
 from .openData import CrowdManagement, facilities, bus_stop, TrainInfos, QuaiStation
 
 
-def arrets_de_bus_zone(request, city_name, station_name, radius):
+def arrets_de_bus_zone(request):
     # Call function from bus_stops_logic module to get bus stop data for Namur
+    city_name = request.GET.get('c')
+    station_name = request.GET.get('s')
+    radius = float(request.GET.get('r'))  # Convert to float or int as needed
     data = bus_stop.get_bus_stops_around_station(city_name, station_name, radius)
     return JsonResponse(data)
 
