@@ -25,7 +25,7 @@ urlpatterns = [
     path('jsonComposition/<int:id>', views.getFacilitiesOfATrain),
     path('CharleroiTri/<str:day>', views.getCrowdManagementOfDayCharleroi),
     path('NamurTri/<str:day>', views.getCrowdManagementOfDayNamur),
-    path('tecCharleroiDocument', views.documentation_bus),
+    path('tecDocument', views.documentation_bus),
     path('documentationInstallations/', views.documentationInstallations),
     path('documentationCrowd', views.documentationCrowdCharleroi),
     path('documentationCrowdNam', views.documentationCrowdNamur),
