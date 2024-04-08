@@ -56,7 +56,7 @@ def GetHauteurQuaiByCity(request, city):
 # documentations
 
 # /apiScoreDoc
-def GetScoreView(request):
+def GetDocumentationView(request):
     return render(request, 'ScoreDesc.html')
 
 

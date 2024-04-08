@@ -30,6 +30,6 @@ urlpatterns = [
     path('documentationCrowd', views.documentationCrowdCharleroi),
     path('documentationCrowdNam', views.documentationCrowdNamur),
     path('compositionDocumentation', views.documentationTrain),
-    path('ApiScoreDoc', views.GetScoreView),
+    path('Documentation', views.GetDocumentationView),
     path('GetHauteurQuai/<str:city>', views.GetHauteurQuaiByCity)
 ]
