@@ -30,7 +30,7 @@ def getFacilitiesOfATrain(request, id):
 def getStationsName(request):
     json_data = stations_name.get_stations_name()
     if json_data:
-        return JsonResponse(json_data)
+        return JsonResponse(json_data, safe=False)
     else:
         return HttpResponse(status=404)
 
