@@ -8,7 +8,7 @@ def get_stations_name():
     #only have the name column
     stations_name = stations['name']
 
-    json_data = stations_name.to_dict()
+    json_data = stations_name.to_json(orient='records')
     return json_data
 
 print(get_stations_name())
