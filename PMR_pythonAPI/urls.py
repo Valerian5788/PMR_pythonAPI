@@ -31,5 +31,6 @@ urlpatterns = [
     path('documentationCrowdNam', views.documentationCrowdNamur),
     path('compositionDocumentation', views.documentationTrain),
     path('Documentation', views.GetDocumentationView),
-    path('GetHauteurQuai/<str:city>', views.GetHauteurQuaiByCity)
+    path('GetHauteurQuai/<str:city>', views.GetHauteurQuaiByCity),
+    path('StationsName', views.getStationsName),
 ]
