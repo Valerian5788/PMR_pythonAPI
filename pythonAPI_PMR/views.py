@@ -1,6 +1,6 @@
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
-from .openData import CrowdManagement, facilities, bus_stop, TrainInfos, QuaiStation, stations_name
+from .openData import CrowdManagement, facilities, bus_stop, TrainInfos, QuaiStation, stations_name, station_coordinates
 
 
 def arrets_de_bus_zone(request):
@@ -29,6 +29,13 @@ def getFacilitiesOfATrain(request, id):
 
 def getStationsName(request):
     json_data = stations_name.get_stations_name()
+    if json_data:
+        return JsonResponse(json_data, safe=False)
+    else:
+        return HttpResponse(status=404)
+
+def getStationCoordinates(request, station_name):
+    json_data = station_coordinates.get_station_coordinates_french(station_name)
     if json_data:
         return JsonResponse(json_data, safe=False)
     else:
