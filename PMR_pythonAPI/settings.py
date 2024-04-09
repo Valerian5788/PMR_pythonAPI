@@ -56,7 +56,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = True
 
 ROOT_URLCONF = 'PMR_pythonAPI.urls'
-
+#tentative cors
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
