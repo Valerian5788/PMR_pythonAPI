@@ -2,7 +2,6 @@ import json
 import os
 from PMR_pythonAPI.settings import BASE_DIR
 
-
 def get_facilities_data():
     json_file_path = os.path.join(BASE_DIR, 'pythonAPI_PMR//internData/facilities.json')
 
@@ -18,8 +17,6 @@ def get_facilities_data():
 
         return sorted_json_data
     else:
-        return print("Le fichier facilities.json n'existe pas.")
-
+        return "Le fichier facilities.json n'existe pas."
 
 print(get_facilities_data())
-
