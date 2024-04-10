@@ -6,9 +6,10 @@ from .openData import CrowdManagement, facilities, bus_stop, TrainInfos, QuaiSta
 def arrets_de_bus_zone(request):
     # Call function from bus_stops_logic module to get bus stop data for Namur
     city_name = request.GET.get('c')
-    station_name = request.GET.get('s')
+    lat = request.GET.get('s')
+    lon = request.GET.get('l')
     radius = float(request.GET.get('r'))  # Convert to float or int as needed
-    data = bus_stop.get_bus_stops_around_station(city_name, station_name, radius)
+    data = bus_stop.get_bus_stops_around_station(city_name, lat, lon, radius)
     return JsonResponse(data)
 
 
