@@ -16,7 +16,7 @@ def arrets_de_bus_zone(request):
 def get_all_facilities(request):
     facilities_data = facilities.get_facilities_data()
     if facilities_data:
-        return JsonResponse(facilities_data)
+        return JsonResponse(facilities_data, safe=False)
     else:
         return HttpResponse(status=404)
 
