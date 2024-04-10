@@ -4,7 +4,7 @@ from PMR_pythonAPI.settings import BASE_DIR
 
 def get_facilities_data():
     # Chemin vers le fichier facilities.json dans votre projet
-    json_file_path = os.path.join(BASE_DIR, 'pythonAPI_PMR/facilities.json')
+    json_file_path = os.path.join(BASE_DIR, 'pythonAPI_PMR//internData/facilities.json')
 
     # Vérifier si le fichier existe
     if os.path.exists(json_file_path):
@@ -24,6 +24,8 @@ def get_facilities_data():
             }
             return response_data
         else:
-            return None
+            return print("Les données pour les stations 'Charleroi-Central' et 'Namur' n'ont pas été trouvées.")
     else:
-        return None
+        return print("Le fichier facilities.json n'existe pas.")
+
+print(get_facilities_data())
