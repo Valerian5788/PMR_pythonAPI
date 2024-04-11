@@ -14,6 +14,7 @@ def get_station_coordinates_french(station_name):
         for result in data:
             if result["type"] == "train_station":
                 coordonnees = {
+                    "station_name": station_name,
                     "lat": result["lat"],
                     "lon": result["lon"]
                 }
@@ -23,4 +24,4 @@ def get_station_coordinates_french(station_name):
         # Gestion des erreurs
         return {"error": f"Erreur lors de la récupération des données API, status code: {response.status_code}"}
 
-
+print(get_station_coordinates_french("Charleroi Central"))
