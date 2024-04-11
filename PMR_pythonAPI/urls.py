@@ -20,17 +20,18 @@ from pythonAPI_PMR import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('TecStopAroundStation/?<str:cityname><str:station_name><int:radius>', views.arrets_de_bus_zone),
+    path('TecStopAroundStation/', views.arrets_de_bus_zone),
     path('jsonFacilities', views.get_all_facilities),
     path('jsonComposition/<int:id>', views.getFacilitiesOfATrain),
     path('CharleroiTri/<str:day>', views.getCrowdManagementOfDayCharleroi),
     path('NamurTri/<str:day>', views.getCrowdManagementOfDayNamur),
-    path('tecCharleroiDocument', views.documentation_bus_Charleroi),
-    path('tecNamurDocument/', views.documentation_bus_namur),
+    path('tecDocument', views.documentation_bus),
     path('documentationInstallations/', views.documentationInstallations),
     path('documentationCrowd', views.documentationCrowdCharleroi),
     path('documentationCrowdNam', views.documentationCrowdNamur),
     path('compositionDocumentation', views.documentationTrain),
-    path('ApiScoreDoc', views.GetScoreView),
-    path('GetHauteurQuai/<str:city>', views.GetHauteurQuaiByCity)
+    path('Documentation', views.GetDocumentationView),
+    path('GetHauteurQuai/<str:city>', views.GetHauteurQuaiByCity),
+    path('StationsName', views.getStationsName),
+    path('GetStationCoordinates/<str:station_name>', views.getStationCoordinates),
 ]
