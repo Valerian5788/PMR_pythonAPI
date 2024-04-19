@@ -35,3 +35,5 @@ urlpatterns = [
     path('StationsName', views.getStationsName),
     path('GetStationCoordinates/<str:station_name>', views.getStationCoordinates),
 ]
+
+#test
