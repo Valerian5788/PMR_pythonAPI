@@ -58,8 +58,8 @@ def getCrowdManagementOfDayNamur(request, day):
     return JsonResponse(json_data, safe=False)
 
 
-def GetHauteurQuaiByCity(request, city):
-    json_data = QuaiStation.get_hauteur_quai(city)
+def GetHauteurQuaiByStation(request, station):
+    json_data = QuaiStation.get_hauteur_quai(station)
 
     if json_data:
         return JsonResponse(json_data)
