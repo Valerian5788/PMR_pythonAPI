@@ -28,7 +28,7 @@ DEBUG = False
 ALLOWED_HOSTS = ["pmr-pythonapi.onrender.com"]
 import os
 
-PORT = int(os.environ.get('PORT', 4000))
+PORT = int(os.environ.get('PORT', 8000))
 
 
 # Application definition
