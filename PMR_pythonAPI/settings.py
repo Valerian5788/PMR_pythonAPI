@@ -26,9 +26,7 @@ SECRET_KEY = 'django-insecure-=w2+3inx38x5ij!o0n!w_fk-kx_*4$-5q19=+*_9v(zw4ejd)k
 DEBUG = False
 
 ALLOWED_HOSTS = ["pmr-pythonapi.onrender.com"]
-import os
 
-PORT = int(os.environ.get('PORT', 8000))
 
 
 # Application definition
