@@ -57,6 +57,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",
     "http://example.com",
     "http://example2.com",
+    "https://pmr-interface.vercel.app"
 ]
 
 ROOT_URLCONF = 'PMR_pythonAPI.urls'
