@@ -12,4 +12,3 @@ def get_facilities_data():
     else:
         return "Le fichier facilities.json n'existe pas."
 
-print(get_facilities_data())

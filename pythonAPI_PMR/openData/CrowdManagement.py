@@ -1,5 +1,6 @@
 import pandas as pd
 
+#data pour le moment entre 2023-02-01 et 2023-02-31
 
 def getCrowdManagementOfDayCharleroi(day):
     # Example of validating the format of the day string

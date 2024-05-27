@@ -21,8 +21,6 @@ def get_bus_stops_around_station(city_name, lat, lon, radius):
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
-        total_count = data["total_count"]
-        print(total_count)
         arrets_dans_zone = []
         for result in data["results"]:
             if "stop_id" in result and "stop_name" in result and "stop_coordinates" in result and min_lat < \
@@ -41,4 +39,3 @@ def get_bus_stops_around_station(city_name, lat, lon, radius):
         return {"error": f"Erreur lors de la récupération des données API, status code: {response.status_code}"}
 
 
-print(get_bus_stops_around_station("Namur",50.468794 ,4.86222, 0.005))

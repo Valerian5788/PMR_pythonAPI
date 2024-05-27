@@ -2,17 +2,19 @@ import requests
 
 
 def get_hauteur_quai(station):
-    url = f"https://opendata.infrabel.be/api/explore/v2.1/catalog/datasets/perronhoogten-in-stations/records?select=*&where=longnamefrench%20LIKE%20%27{station}%27&limit=99"
-    response = requests.get(url)
+    if '/' in station:
+        station = parse_station_name(station)
+    
+
+    url_french = f"https://opendata.infrabel.be/api/explore/v2.1/catalog/datasets/perronhoogten-in-stations/records?select=*&where=longnamefrench%20LIKE%20%27{station}%27&limit=99"
+    response = requests.get(url_french)
     if response.status_code == 200:
         data = response.json()["results"]
         extracted_data = []
         for result in data:
             station_data = {
-                "nom de la gare": result["longnamefrench"],
                 "id du quai": result["quai"],
-                "hauteur": result["hauteur"],
-                "coordonnées": result["geo_point_2d"]
+                "hauteur": result["hauteur"]
             }
             extracted_data.append(station_data)
 
@@ -22,3 +24,10 @@ def get_hauteur_quai(station):
         return None
 
 
+
+def parse_station_name(station_name):
+    return station_name.split("/")[1]
+
+
+
+get_hauteur_quai("Namur")
