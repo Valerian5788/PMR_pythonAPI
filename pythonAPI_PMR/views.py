@@ -60,9 +60,8 @@ def getCrowdManagementOfDayNamur(request, day):
 
 def GetHauteurQuaiByStation(request, station):
     json_data = QuaiStation.get_hauteur_quai(station)
-
     if json_data:
-        return JsonResponse(json_data)
+        return JsonResponse(json_data, safe=False)
     else:
         return HttpResponse(status=400)
 

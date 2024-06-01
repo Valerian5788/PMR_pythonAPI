@@ -30,4 +30,4 @@ def parse_station_name(station_name):
 
 
 
-get_hauteur_quai("Namur")
+print(get_hauteur_quai("Namur"))
