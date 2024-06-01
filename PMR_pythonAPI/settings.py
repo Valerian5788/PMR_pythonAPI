@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=w2+3inx38x5ij!o0n!w_fk-kx_*4$-5q19=+*_9v(zw4ejd)k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["pmr-pythonapi.onrender.com"]
 
@@ -61,22 +61,6 @@ CORS_ALLOWED_ORIGINS = [
     "https://pmr-interface.vercel.app",
     "https://pmr-pythonapi.onrender.com"
 ]
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'debug.log',
-        },
-    },
-    'root': {
-        'handlers': ['file'],
-        'level': 'DEBUG',
-    },
-}
-
 
 
 ROOT_URLCONF = 'PMR_pythonAPI.urls'

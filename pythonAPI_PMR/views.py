@@ -58,17 +58,13 @@ def getCrowdManagementOfDayNamur(request, day):
     return JsonResponse(json_data, safe=False)
 
 
-import logging
-
-logger = logging.getLogger(__name__)
-
 def GetHauteurQuaiByStation(request, station):
-    logger.info(f"Received station: {station}")
     json_data = QuaiStation.get_hauteur_quai(station)
     if json_data:
         return JsonResponse(json_data, safe=False)
     else:
         return HttpResponse(status=400)
+
 
 # documentations
 
