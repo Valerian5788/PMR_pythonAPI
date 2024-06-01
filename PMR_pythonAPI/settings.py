@@ -58,8 +58,26 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",
     "http://example.com",
     "http://example2.com",
-    "https://pmr-interface.vercel.app"
+    "https://pmr-interface.vercel.app",
+    "https://pmr-pythonapi.onrender.com"
 ]
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+        },
+    },
+    'root': {
+        'handlers': ['file'],
+        'level': 'DEBUG',
+    },
+}
+
+
 
 ROOT_URLCONF = 'PMR_pythonAPI.urls'
 #tentative cors
