@@ -24,4 +24,4 @@ def get_station_coordinates_french(station_name):
         # Gestion des erreurs
         return {"error": f"Erreur lors de la récupération des données API, status code: {response.status_code}"}
 
-print(get_station_coordinates_french("Charleroi Central"))
+print(get_station_coordinates_french("Gare De Namur"))

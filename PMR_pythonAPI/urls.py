@@ -26,13 +26,13 @@ urlpatterns = [
     path('CharleroiTri/<str:day>', views.getCrowdManagementOfDayCharleroi),
     path('NamurTri/<str:day>', views.getCrowdManagementOfDayNamur),
     path('tecDocument', views.documentation_bus),
-    path('documentationInstallations/', views.documentationInstallations),
+    path('documentationInstallations', views.documentationInstallations),
     path('documentationCrowd', views.documentationCrowdCharleroi),
     path('documentationCrowdNam', views.documentationCrowdNamur),
     path('compositionDocumentation', views.documentationTrain),
     path('Documentation', views.GetDocumentationView),
     path('GetHauteurQuai/<str:city>', views.GetHauteurQuaiByStation),
     path('StationsName', views.getStationsName),
-    path('GetStationCoordinates/<str:station_name>', views.getStationCoordinates),
+    path('GetStationCoordinates/<str:station_name>', views.getStationCoordinates)
 ]
 
