@@ -28,8 +28,8 @@ def getFacilitiesOfATrain(request, id):
     else:
         return HttpResponse(status=404)
 
-def getStationsName(request):
-    json_data = stations_name.get_stations_name()
+def getStationsName(request, lang):
+    json_data = stations_name.get_stations_name(lang)
     if json_data:
         return JsonResponse(json_data, safe=False)
     else:

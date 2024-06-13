@@ -32,7 +32,7 @@ urlpatterns = [
     path('compositionDocumentation', views.documentationTrain),
     path('Documentation', views.GetDocumentationView),
     path('GetHauteurQuai/<str:station>', views.GetHauteurQuaiByStation),
-    path('StationsName', views.getStationsName),
+    path('StationsName/<str:lang>', views.getStationsName),
     path('GetStationCoordinates/<str:station_name>', views.getStationCoordinates)
 ]
 
